@@ -6,6 +6,8 @@ import GameOverPage from "./pages/game-over/GameOverPage";
 import HighScorePage from "./pages/highscore/HighscorePage";
 import HowToPlayPage from "./pages/how-to-play/HowToPlayPage";
 
+import Navigation from "./components/Layout/Navigation/Navigation.component";
+
 function App() {
   return (
     <Routes>
@@ -13,7 +15,7 @@ function App() {
         path="/"
         element={
           <>
-            <div>test</div>
+            <Navigation />
             <Outlet />
           </>
         }
