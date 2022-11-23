@@ -10,6 +10,7 @@ import {
   NavigationList,
   NavigationListItem,
   LinkStyled,
+  NavTextContainer,
 } from "./Navigation.style";
 
 const Navigation = () => {
@@ -40,7 +41,6 @@ const Navigation = () => {
     ];
   }
 
-  console.log("ededrf", location);
   return (
     <NavigationStyled>
       <NavigationList>
@@ -51,7 +51,7 @@ const Navigation = () => {
                 {navigationItem?.item}
               </LinkStyled>
             ) : (
-              <div>{navigationItem?.item}</div>
+              <NavTextContainer>{navigationItem?.item}</NavTextContainer>
             )}
           </NavigationListItem>
         ))}
