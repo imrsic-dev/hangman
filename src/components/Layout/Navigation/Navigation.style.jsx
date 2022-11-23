@@ -23,15 +23,24 @@ const NavigationList = styled.ul`
 
 const NavigationListItem = styled.li`
   display: flex;
-
-  font-size: 36px;
-  line-height: 44px;
-  text-transform: uppercase;
-  color: #000747;
 `;
 
 const LinkStyled = styled(Link)`
   display: flex;
 `;
 
-export { NavigationStyled, NavigationList, NavigationListItem, LinkStyled };
+const NavTextContainer = styled.div`
+  font-size: 36px;
+  line-height: 44px;
+  text-transform: uppercase;
+  color: ${(props) => props.theme.colors.blue};
+  font-family: ${(props) => props.theme.fonts.aladin};
+`;
+
+export {
+  NavigationStyled,
+  NavigationList,
+  NavigationListItem,
+  LinkStyled,
+  NavTextContainer,
+};
