@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const NavigationStyled = styled.div`
   display: flex;
 
-  margin-top: 60px;
+  margin-top: ${(props) => props.theme.spacings.margin.xxl};
   background-color: transparent;
 `;
 
@@ -16,7 +16,7 @@ const NavigationList = styled.ul`
   align-items: center;
 
   width: 100%;
-  padding: 0 30px;
+  padding: 0 ${(props) => props.theme.spacings.padding.l};
 
   list-style: none;
 `;
@@ -30,8 +30,8 @@ const LinkStyled = styled(Link)`
 `;
 
 const NavTextContainer = styled.div`
-  font-size: 36px;
-  line-height: 44px;
+  font-size: ${(props) => props.theme.spacings.fontSize.xl};
+  line-height: ${(props) => props.theme.spacings.lineHeight.xl};
   text-transform: uppercase;
   color: ${(props) => props.theme.colors.blue};
   font-family: ${(props) => props.theme.fonts.aladin};

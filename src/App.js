@@ -1,10 +1,10 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 
-import HomePage from "./pages/home/HomePage";
+import HomePage from "./pages/home/Home.page";
 import GamePage from "./pages/game/GamePage";
 import GameOverPage from "./pages/game-over/GameOverPage";
 import HighScorePage from "./pages/highscore/HighscorePage";
-import HowToPlayPage from "./pages/how-to-play/HowToPlayPage";
+import HowToPlayPage from "./pages/how-to-play/HowToPlay.page";
 
 import Navigation from "./components/Layout/Navigation/Navigation.component";
 
