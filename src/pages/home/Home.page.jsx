@@ -1,16 +1,8 @@
 import React from "react";
-import BodyStyled from "../../style/GlobalBodyStyle";
-import mobileBackground from "../../assets/Mobile_Bg.png";
+import Home from "../../components/pages/home/Home.component";
 
 const HomePage = () => {
-  return (
-    console.log(mobileBackground) || (
-      <>
-        <BodyStyled backgroundImage={mobileBackground} />
-        <div>Home page</div>
-      </>
-    )
-  );
+  return <Home />;
 };
 
 export default HomePage;

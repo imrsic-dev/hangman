@@ -30,7 +30,7 @@ const LinkStyled = styled(Link)`
 `;
 
 const NavTextContainer = styled.div`
-  font-size: ${(props) => props.theme.spacings.fontSize.xl};
+  font-size: ${(props) => props.theme.fontSize.xl};
   line-height: ${(props) => props.theme.spacings.lineHeight.xl};
   text-transform: uppercase;
   color: ${(props) => props.theme.colors.blue};

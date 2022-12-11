@@ -14,6 +14,9 @@ const Image = styled.img`
 `;
 
 const ListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: ${theme.spacings.padding.m};
 `;
 
