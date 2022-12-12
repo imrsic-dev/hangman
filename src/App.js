@@ -1,12 +1,13 @@
+import React, { lazy, Suspense } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 
-import HomePage from "./pages/home/Home.page";
-import GamePage from "./pages/game/GamePage";
-import GameOverPage from "./pages/game-over/GameOverPage";
-import HighScorePage from "./pages/highscore/HighscorePage";
-import HowToPlayPage from "./pages/how-to-play/HowToPlay.page";
-
 import Navigation from "./components/Layout/Navigation/Navigation.component";
+
+const HomePage = lazy(() => import("./pages/home/Home.page"));
+const GamePage = lazy(() => import("./pages/game/GamePage"));
+const GameOverPage = lazy(() => import("./pages/game-over/GameOverPage"));
+const HighScorePage = lazy(() => import("./pages/highscore/HighscorePage"));
+const HowToPlayPage = lazy(() => import("./pages/how-to-play/HowToPlay.page"));
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
         element={
           <>
             <Navigation />
-            <Outlet />
+            <Suspense fallback={<span>Loading ...</span>}>
+              <Outlet />
+            </Suspense>
           </>
         }
       >
