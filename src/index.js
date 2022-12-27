@@ -1,4 +1,5 @@
 import React from "react";
+import { GameProvider } from "./context/game.context";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import ReactDOM from "react-dom/client";
@@ -11,7 +12,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <App />
+        <GameProvider>
+          <App />
+        </GameProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>

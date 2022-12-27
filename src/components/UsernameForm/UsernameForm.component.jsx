@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useGame } from "../../context/game.context";
 import { useFormValidator } from "../../hooks/useFormValidator";
 import FlexContainer from "../Layout/FlexContainer/FlexContainer.component";
 import Button from "../UI/Button/Button";
@@ -10,9 +11,13 @@ import {
 } from "./UsernameForm.style";
 
 const UsernameForm = () => {
+  const { player, setPlayer, setIsGameStarted } = useGame();
   const [form, setForm] = useState({
-    username: "",
+    username: player.username || "",
   });
+
+  const context = useGame();
+  console.log(context);
 
   const { errors, validateForm, onBlurField } = useFormValidator(form);
 
@@ -28,7 +33,8 @@ const UsernameForm = () => {
     e.preventDefault();
     const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
     if (!isValid) return;
-    alert(JSON.stringify(form, null, 2));
+    setPlayer((prevState) => ({ ...prevState, username: form.username }));
+    setIsGameStarted(true);
   };
 
   return (

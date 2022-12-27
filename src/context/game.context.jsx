@@ -1,45 +1,59 @@
 import { createContext, useState, useEffect, useContext } from "react";
+import useQuote from "../hooks/useQuote";
+
+import { GAME_LEVEL_ITEMS } from "../constants";
 
 export const GameContext = createContext({
-  dificultyLevel: "easy",
-  username: "",
-  phrase: "",
+  isGameStarted: false,
+  difficultyLevel: "",
+  player: {
+    username: "",
+    score: 0,
+  },
+  quote: "",
   alphabet: "",
-  addUsername: () => {},
-  changeDificultyLevel: () => {},
+  setPlayer: () => {},
+  setDificultyLevel: () => {},
+  setIsGameStarted: () => {},
 });
 
-export const GameProvider = ({ children }) => {
-  const [dificultyLevel, setDificultyLevel] = useState("easy");
-  const [username, setUsername] = useState("");
-  const [phrase, setPhrase] = useState("");
+const GameProvider = ({ children }) => {
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [isGameRestarted, setIsGameRestarted] = useState(false);
+  const [difficultyLevel, setDifficultyLevel] = useState(
+    GAME_LEVEL_ITEMS[0].id
+  );
+  const [player, setPlayer] = useState({
+    username: "",
+    score: 0,
+  });
   const [alphabet, setAlphabet] = useState([]);
 
-  useEffect(() => {
-    const getQuote = async () => {
-      let response = await fetch("https://type.fit/api/quotes");
-      response = await response.json();
-      if (!response.length) {
-        setPhrase("");
-      }
-      setPhrase(response[0]);
-    };
-    getQuote();
-  }, []);
+  const [quote, loading, error] = useQuote(isGameRestarted, setIsGameRestarted);
 
-  const addUsername = (username) => setUsername(username);
-
-  const changeDificultyLevel = (dificultyLevel) =>
-    setDificultyLevel(dificultyLevel);
+  console.log("quote", quote);
 
   const value = {
-    dificultyLevel,
-    username,
-    phrase,
+    isGameStarted,
+    difficultyLevel,
+    player,
+    quote,
     alphabet,
-    addUsername,
-    changeDificultyLevel,
+    setPlayer,
+    setDifficultyLevel,
+    setIsGameStarted,
+    setIsGameRestarted,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
 };
+
+const useGame = () => {
+  const context = useContext(GameContext);
+  if (context === undefined) {
+    throw new Error("useGame must be used within a GameProvider");
+  }
+  return context;
+};
+
+export { GameProvider, useGame };
