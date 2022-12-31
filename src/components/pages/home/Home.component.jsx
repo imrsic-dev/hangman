@@ -17,7 +17,7 @@ const Home = () => {
         <FlexContainer
           margin={`${theme.spacings.margin.xxl} 0 ${theme.spacings.margin.l}`}
         >
-          <HangMan />
+          <HangMan fixed={true} />
         </FlexContainer>
       </PageContainer>
       <Container>
