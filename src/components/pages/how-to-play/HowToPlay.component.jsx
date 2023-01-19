@@ -1,12 +1,13 @@
-import BodyStyled from "../../../style/GlobalBodyStyle";
-import theme from "../../../style/theme";
+import React from 'react';
+import BodyStyled from '../../../style/GlobalBodyStyle';
+import theme from '../../../style/theme';
 
-import { ImageContainer, Image, ListContainer } from "./HowToPlay.style";
-import PageContainer from "../../Layout/PageContainer/PageContainer.component";
-import FlexContainer from "../../Layout/FlexContainer/FlexContainer.component";
-import { H1, P, Ul } from "../../Typography/Typography";
-import { HOW_TO_PLAY_LIST_ITEMS } from "../../../constants";
-import GuyImage from "../../../assets/How-to-play.svg";
+import { ImageContainer, Image, ListContainer } from './HowToPlay.style';
+import PageContainer from '../../Layout/PageContainer/PageContainer.component';
+import FlexContainer from '../../Layout/FlexContainer/FlexContainer.component';
+import { H1, P, Ul } from '../../Typography/Typography';
+import { HOW_TO_PLAY_LIST_ITEMS } from '../../../constants';
+import GuyImage from '../../../assets/How-to-play.svg';
 
 const HowToPlay = () => (
   <PageContainer>

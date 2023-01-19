@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { touchErrors } from "../utils";
-import { usernameValidator } from "../utils/validators";
+import { useState } from 'react';
+import { touchErrors } from '../utils';
+import { usernameValidator } from '../utils/validators';
 
 export const useFormValidator = (form) => {
   const [errors, setErrors] = useState({
@@ -24,9 +24,9 @@ export const useFormValidator = (form) => {
 
     const { username } = form;
 
-    if (nextErrors.username.dirty && (field ? field === "username" : true)) {
+    if (nextErrors.username.dirty && (field ? field === 'username' : true)) {
       const isUsernameValid = usernameValidator(username, form);
-      console.log("isUsernameValid", isUsernameValid);
+      console.log('isUsernameValid', isUsernameValid);
       nextErrors.username.error = !!isUsernameValid;
       nextErrors.username.isValid = isUsernameValid;
       isValid = isUsernameValid;

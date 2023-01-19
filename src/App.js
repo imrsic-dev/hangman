@@ -1,13 +1,13 @@
-import React, { lazy, Suspense } from "react";
-import { Routes, Route, Outlet } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
-import Navigation from "./components/Layout/Navigation/Navigation.component";
+import Navigation from './components/Layout/Navigation/Navigation.component';
 
-const HomePage = lazy(() => import("./pages/home/Home.page"));
-const GamePage = lazy(() => import("./pages/game/GamePage"));
-const GameOverPage = lazy(() => import("./pages/game-over/GameOverPage"));
-const HighScorePage = lazy(() => import("./pages/highscore/HighscorePage"));
-const HowToPlayPage = lazy(() => import("./pages/how-to-play/HowToPlay.page"));
+const HomePage = lazy(() => import('./pages/home/Home.page'));
+const GamePage = lazy(() => import('./pages/game/GamePage'));
+const GameOverPage = lazy(() => import('./pages/game-over/GameOverPage'));
+const HighScorePage = lazy(() => import('./pages/highscore/HighscorePage'));
+const HowToPlayPage = lazy(() => import('./pages/how-to-play/HowToPlay.page'));
 
 function App() {
   return (

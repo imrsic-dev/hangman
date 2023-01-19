@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useGame } from "../../context/game.context";
-import { useFormValidator } from "../../hooks/useFormValidator";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useGame } from '../../context/game.context';
+import { useFormValidator } from '../../hooks/useFormValidator';
 
-import FlexContainer from "../Layout/FlexContainer/FlexContainer.component";
-import Button from "../UI/Button/Button";
+import FlexContainer from '../Layout/FlexContainer/FlexContainer.component';
+import Button from '../UI/Button/Button';
 import {
   FormStyled,
   Label,
   Input,
   FormErrorMessage,
-} from "./UsernameForm.style";
+} from './UsernameForm.style';
 
 const UsernameForm = () => {
   const navigate = useNavigate();
   const { player, setPlayer, setIsGameStarted } = useGame();
   const [form, setForm] = useState({
-    username: player.username || "",
+    username: player.username || '',
   });
 
   const context = useGame();
@@ -38,7 +38,7 @@ const UsernameForm = () => {
     if (!isValid) return;
     setPlayer((prevState) => ({ ...prevState, username: form.username }));
     setIsGameStarted(true);
-    navigate("/game");
+    navigate('/game');
   };
 
   return (

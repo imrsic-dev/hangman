@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const FormStyled = styled.form`
   padding: ${(props) => props.theme.spacings.padding.m};

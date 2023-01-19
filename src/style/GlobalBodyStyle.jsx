@@ -1,21 +1,21 @@
-import { css, createGlobalStyle } from "styled-components";
+import { css, createGlobalStyle } from 'styled-components';
 
 const BodyStyled = createGlobalStyle`
   body {
     ${(props) =>
-      props.backgroundColor
-        ? css`
+    props.backgroundColor
+      ? css`
             background-color: ${props.backgroundColor};
           `
-        : null};
+      : null};
     ${(props) =>
-      props.backgroundImage
-        ? css`
+    props.backgroundImage
+      ? css`
             background-image: url(${props.backgroundImage});
             background-position: center;
             background-repeat: repeat;
           `
-        : null};
+      : null};
   }`;
 
 export default BodyStyled;

@@ -1,8 +1,9 @@
-import React, { useState, useCallback } from "react";
-import { useGame } from "../../context/game.context";
-import { GameLevelStyled, GameLevelItem } from "./GameLevel.style";
+import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import { useGame } from '../../context/game.context';
+import { GameLevelStyled, GameLevelItem } from './GameLevel.style';
 
-import { GAME_LEVEL_ITEMS } from "../../constants";
+import { GAME_LEVEL_ITEMS } from '../../constants';
 
 const GameLevel = ({ borderColor, gameLevelItems = GAME_LEVEL_ITEMS }) => {
   const { difficultyLevel, setDifficultyLevel, setIsGameRestarted } = useGame();
@@ -31,6 +32,11 @@ const GameLevel = ({ borderColor, gameLevelItems = GAME_LEVEL_ITEMS }) => {
       ))}
     </GameLevelStyled>
   );
+};
+
+GameLevel.propTypes = {
+  borderColor: PropTypes.string,
+  gameLevelItems: PropTypes.array
 };
 
 export default GameLevel;

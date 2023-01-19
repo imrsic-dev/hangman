@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const GameOverPage = () => {
   return <div>GameOverPage</div>;
