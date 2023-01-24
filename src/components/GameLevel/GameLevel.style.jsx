@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 const checkedStyle = css`
   border: 3px solid ${(props) => props.theme.colors.turquoise};
@@ -41,6 +41,6 @@ const GameLevelItem = React.memo(
     );
   }
 );
-GameLevelItem.displayName = "GameLevelItem";
+GameLevelItem.displayName = 'GameLevelItem';
 
 export { GameLevelStyled, GameLevelItem };

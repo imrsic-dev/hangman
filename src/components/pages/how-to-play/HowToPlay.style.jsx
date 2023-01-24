@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../../../style/theme";
+import styled from 'styled-components';
+import theme from '../../../style/theme';
 
 const ImageContainer = styled.div`
   display: flex;

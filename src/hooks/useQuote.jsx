@@ -1,7 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from 'react';
 
-const useQuote = (isGameRestarted, setIsGameRestarted) => {
-  console.log("useQuote");
+const useQuote = (restartGame, isGameStarted) => {
   const [quote, setQuote] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -9,32 +8,38 @@ const useQuote = (isGameRestarted, setIsGameRestarted) => {
   const fetchQuote = useCallback(async () => {
     setLoading(true);
     try {
-      let response = await fetch("https://type.fit/api/quotes");
+      let response = await fetch('https://type.fit/api/quotes');
       response = await response.json();
       if (!response.length) {
-        setQuote("");
+        console.log('los response');
+        setQuote('');
       } else {
-        setQuote(response[0]);
+        let randomIndex = Math.floor(Math.random() * response.length);
+        setQuote(response[randomIndex]);
       }
     } catch (err) {
       setError(err);
     } finally {
       setLoading(false);
-      setIsGameRestarted(false);
     }
   }, []);
 
   useEffect(() => {
-    console.log("UE");
+    if(isGameStarted){
+      return;
+    }
+    console.log('1st fetch');
     fetchQuote();
-  }, [fetchQuote]);
+  }, [isGameStarted, fetchQuote]);
 
   useEffect(() => {
-    if (isGameRestarted) {
-      console.log("UE restart");
-      fetchQuote();
+    if(!isGameStarted){
+      console.log('canceled fetch');
+      return;
     }
-  }, [isGameRestarted, fetchQuote]);
+    console.log('restart fetch');
+    fetchQuote();
+  }, [fetchQuote, restartGame]);
 
   return [quote, loading, error];
 };

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 const H1 = styled.h1`
   font-family: ${(props) => props.theme.fonts.aladin};
@@ -53,7 +53,7 @@ const Ul = styled.ul`
     props.padding || `0 ${props.theme.spacings.padding.xs}`};
   color: ${(props) => props.color || props.theme.colors.blue};
 
-  list-style-type: ${(props) => props.listStyleType || "'-'"};
+  list-style-type: ${(props) => props.listStyleType || '\'-\''};
 `;
 
 export { H1, P, Ul };
