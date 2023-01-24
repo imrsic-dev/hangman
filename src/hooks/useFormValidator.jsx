@@ -26,7 +26,6 @@ export const useFormValidator = (form) => {
 
     if (nextErrors.username.dirty && (field ? field === 'username' : true)) {
       const isUsernameValid = usernameValidator(username, form);
-      console.log('isUsernameValid', isUsernameValid);
       nextErrors.username.error = !!isUsernameValid;
       nextErrors.username.isValid = isUsernameValid;
       isValid = isUsernameValid;

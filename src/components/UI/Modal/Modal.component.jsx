@@ -1,31 +1,47 @@
-import React from "react";
-import { createPortal } from "react-dom";
-import { BackdropStyled, ModalStyled } from "./Modal.style";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { createPortal } from 'react-dom';
+import { BackdropStyled, ModalStyled } from './Modal.style';
 
 const Backdrop = ({ onClose = () => null }) => {
   return <BackdropStyled onClick={onClose} />;
 };
 
-const ModalOverlay = (props) => {
+Backdrop.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
+
+const ModalOverlay = ({children}) => {
   return (
     <ModalStyled>
-      <div className="content">{props.children}</div>
+      <div className="content">{children}</div>
     </ModalStyled>
   );
 };
 
-const portalElement = document.getElementById("overlays");
+ModalOverlay.propTypes = {
+  children: PropTypes.node,
+};
 
-const Modal = (props) => {
+
+const portalElement = document.getElementById('overlays');
+
+const Modal = ({onClose, children}) => {
   return (
     <>
-      {createPortal(<Backdrop onClose={props.onClose} />, portalElement)}
+      {createPortal(<Backdrop onClose={onClose} />, portalElement)}
       {createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
+        <ModalOverlay>{children}</ModalOverlay>,
         portalElement
       )}
     </>
   );
 };
+
+Modal.propTypes = {
+  children: PropTypes.node,
+  onClose: PropTypes.func,
+};
+
 
 export default Modal;

@@ -6,14 +6,13 @@ import { GameLevelStyled, GameLevelItem } from './GameLevel.style';
 import { GAME_LEVEL_ITEMS } from '../../constants';
 
 const GameLevel = ({ borderColor, gameLevelItems = GAME_LEVEL_ITEMS }) => {
-  const { difficultyLevel, setDifficultyLevel, setIsGameRestarted } = useGame();
+  const { difficultyLevel, setDifficultyLevel } = useGame();
   const [isChecked, setIsChecked] = useState(difficultyLevel);
 
   const clickHandler = useCallback(
     (id) => {
       setIsChecked(id);
       setDifficultyLevel(id);
-      setIsGameRestarted(true);
     },
     [setDifficultyLevel]
   );

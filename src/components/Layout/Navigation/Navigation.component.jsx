@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { useGame } from '../../../context/game.context';
 
 import { ReactComponent as HomeIcon } from '../../../assets/icons/Nav-Home.svg';
 import { ReactComponent as HighscoreIcon } from '../../../assets/icons/Nav-Highscore.svg';
@@ -15,6 +16,7 @@ import {
 
 const Navigation = () => {
   const location = useLocation();
+  const {setIsGameStarted} = useGame();
 
   let navigationItems = [
     { id: 'rules-icon', item: <RulesIcon />, to: 'how-to-play' },
@@ -27,7 +29,7 @@ const Navigation = () => {
     location?.pathname.includes('how-to-play')
   ) {
     navigationItems = [
-      { id: 'home-icon', item: <HomeIcon />, to: '/' },
+      { id: 'home-icon', item: <HomeIcon onClick={()=> setIsGameStarted(false)} />, to: '/' },
       { id: 'hangman-text', item: 'hangman', to: null },
       { id: 'highscore-icon', item: <HighscoreIcon />, to: 'highscore' },
     ];
@@ -35,7 +37,7 @@ const Navigation = () => {
 
   if (location?.pathname.includes('highscore')) {
     navigationItems = [
-      { id: 'home-icon', item: <HomeIcon />, to: '/' },
+      { id: 'home-icon', item: <HomeIcon onClick={()=> setIsGameStarted(false)} />, to: '/' },
       { id: 'hangman-text', item: 'hangman', to: null },
       { id: 'rules-icon', item: <RulesIcon />, to: 'how-to-play' },
     ];

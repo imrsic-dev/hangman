@@ -16,12 +16,13 @@ export const GameContext = createContext({
   alphabet: '',
   setPlayer: () => {},
   setDificultyLevel: () => {},
-  setIsGameStarted: () => {},
+  setRestartGame: () => {},
 });
 
 const GameProvider = ({ children }) => {
   const [isGameStarted, setIsGameStarted] = useState(false);
-  const [isGameRestarted, setIsGameRestarted] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [restartGame, setRestartGame] = useState(false);
   const [difficultyLevel, setDifficultyLevel] = useState(
     GAME_LEVEL_ITEMS[0].id
   );
@@ -31,7 +32,7 @@ const GameProvider = ({ children }) => {
   });
   const [alphabet] = useState([]);
 
-  const [quote] = useQuote(isGameRestarted, setIsGameRestarted);
+  const [quote, loading] = useQuote(restartGame, isGameStarted);
 
   console.log('quote', quote);
 
@@ -40,11 +41,12 @@ const GameProvider = ({ children }) => {
     difficultyLevel,
     player,
     quote,
+    loading,
     alphabet,
     setPlayer,
     setDifficultyLevel,
     setIsGameStarted,
-    setIsGameRestarted,
+    setRestartGame,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

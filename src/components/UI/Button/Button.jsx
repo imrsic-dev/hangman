@@ -10,8 +10,8 @@ const Button = ({ inverted, onClickHandler, children }) => (
 
 Button.propTypes = {
   children: PropTypes.node,
-  onClickHandler: PropTypes.func.isRequired,
-  inverted: PropTypes.bool.isRequired,
+  onClickHandler: PropTypes.func,
+  inverted: PropTypes.bool,
 };
 
 export default Button;

@@ -6,6 +6,8 @@ const theme = {
     turquoise: '#39BEAB',
     linen: '#FFF1E3',
     white: '#FFFFFF',
+    pinkLight: '#FFDFC1',
+    backdrop: 'rgba(255, 223, 193, 0.83)',
   },
   fonts: {
     aladin: '"Aladin", cursive',

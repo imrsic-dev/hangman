@@ -19,9 +19,6 @@ const UsernameForm = () => {
     username: player.username || '',
   });
 
-  const context = useGame();
-  console.log(context);
-
   const { errors, validateForm, onBlurField } = useFormValidator(form);
 
   const onUpdateField = (e) => {

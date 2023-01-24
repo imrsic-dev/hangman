@@ -5,25 +5,22 @@ import { isAlphaNumeric } from '../../utils';
 
 const quoteCreateJSX = (quote, guessedLetters) => {
   const quoteByWords = quote.toUpperCase().split(' ');
-  return quoteByWords.map((word, i) => {
+  return quoteByWords.map((word, index) => {
     const wordArray = [...word];
-
     return (
       <>
-        <QuoteLetterContainer>
-          {wordArray.map((letter) => {
+        <QuoteLetterContainer key={index}>
+          {wordArray.map((letter, i) => {
             if (!isAlphaNumeric(letter)) {
-              // eslint-disable-next-line react/jsx-key
-              return <QuoteLetter>{letter}</QuoteLetter>;
+              return <QuoteLetter key={i}>{letter}</QuoteLetter>;
             }
             return (
-              // eslint-disable-next-line react/jsx-key
-              <QuoteLetter borderBottom={true}>
+              <QuoteLetter key={i} borderBottom={true}>
                 {guessedLetters.includes(letter) ? letter : null}
               </QuoteLetter>
             );
           })}
-          {i + 1 < quoteByWords.length ? <QuoteLetter></QuoteLetter> : null}
+          {index + 1 < quoteByWords.length ? <QuoteLetter key={index}></QuoteLetter> : null}
         </QuoteLetterContainer>
       </>
     );
