@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { LetterStyled } from './Letter.style';
 
-const Letter = ({ children, clickHandler }) => {
+const Letter = ({ children, clickHandler, ...props }) => {
   const [status, setStatus] = useState();
   const onClick = useCallback(
     (letter) => {
@@ -13,7 +13,7 @@ const Letter = ({ children, clickHandler }) => {
     [clickHandler, status]
   );
   return (
-    <LetterStyled status={status} onClick={() => onClick(children)}>
+    <LetterStyled status={status} onClick={() => onClick(children)} {...props}>
       {children}
     </LetterStyled>
   );

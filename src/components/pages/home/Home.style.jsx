@@ -1,4 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const paddingStyle = css`
+  ${(props) =>
+    props.padding ||
+    `${props.theme.spacings.padding.xxl} ${props.theme.spacings.padding.xxxl} 0`}
+`;
 
 const Container = styled.div`
   flex-flow: column;
@@ -6,8 +12,7 @@ const Container = styled.div`
   display: flex;
   border-radius: 25px 25px 0px 0px;
   background-color: ${(props) => props.theme.colors.linen};
-  padding: ${(props) => props.theme.spacings.padding.xxl}
-    ${(props) => props.theme.spacings.padding.xxl} 0;
+  padding: ${paddingStyle};
   margin-top: ${(props) => props.theme.spacings.padding.l};
 `;
 

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const AlphabetStyled = styled.div`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-gap: 10px;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 600px;
 
-  padding: 40px;
+  padding-bottom: 20px;
 `;

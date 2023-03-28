@@ -12,7 +12,11 @@ const quoteCreateJSX = (quote, guessedLetters) => {
         <QuoteLetterContainer key={index}>
           {wordArray.map((letter, i) => {
             if (!isAlphaNumeric(letter)) {
-              return <QuoteLetter key={i}>{letter}</QuoteLetter>;
+              return (
+                <QuoteLetter key={i} minWidth="12px" lineHeight="0.8">
+                  {letter}
+                </QuoteLetter>
+              );
             }
             return (
               <QuoteLetter key={i} borderBottom={true}>
@@ -20,7 +24,9 @@ const quoteCreateJSX = (quote, guessedLetters) => {
               </QuoteLetter>
             );
           })}
-          {index + 1 < quoteByWords.length ? <QuoteLetter key={index}></QuoteLetter> : null}
+          {index + 1 < quoteByWords.length ? (
+            <QuoteLetter key={index} minWidth="12px"></QuoteLetter>
+          ) : null}
         </QuoteLetterContainer>
       </>
     );
@@ -30,7 +36,7 @@ const quoteCreateJSX = (quote, guessedLetters) => {
 const Quote = ({ quote, guessedLetters }) => {
   const quoteJSX = useMemo(
     () => quoteCreateJSX(quote, guessedLetters),
-    [quote, guessedLetters]
+    [quote, guessedLetters],
   );
 
   return <QuoteStyled>{quoteJSX}</QuoteStyled>;
