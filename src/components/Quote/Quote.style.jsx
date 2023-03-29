@@ -20,6 +20,7 @@ export const QuoteLetter = styled.div`
   display: flex;
   justify-content: center;
   align-items: ${({ borderBottom }) => (borderBottom ? 'center' : 'flex-end')};
+  color: ${({ theme }) => theme.colors.blue};
   font-family: ${(props) => props.theme.fonts.lato};
   font-size: 28px;
   font-weight: ${({ theme }) => theme.fontWeight.bold};

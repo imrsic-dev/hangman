@@ -7,6 +7,8 @@ const HangMan = ({
   numberOfMistakes = 0,
   fillCollor = '#000747',
   opacityColor = 0.2,
+  width = '191',
+  height = '275',
 }) => {
   const gallows = useMemo(
     () => [
@@ -37,7 +39,7 @@ const HangMan = ({
         opacity: 1,
       },
     ],
-    [fillCollor]
+    [fillCollor],
   );
   const items = useMemo(
     () => [
@@ -128,7 +130,7 @@ const HangMan = ({
         opacity: opacityColor,
       },
     ],
-    [fillCollor, opacityColor]
+    [fillCollor, opacityColor],
   );
 
   const [hangmanParts, setHangmanParts] = useState(items);
@@ -147,8 +149,8 @@ const HangMan = ({
 
   return (
     <svg
-      width="191"
-      height="275"
+      width={width}
+      height={height}
       viewBox="0 0 191 275"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -171,6 +173,8 @@ HangMan.propTypes = {
   numberOfMistakes: PropTypes.number,
   opacityColor: PropTypes.number,
   fillCollor: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
 };
 
 export default HangMan;

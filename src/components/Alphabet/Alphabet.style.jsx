@@ -4,7 +4,6 @@ export const AlphabetStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 6px;
   max-width: 600px;
-
-  padding-bottom: 20px;
 `;

@@ -8,10 +8,10 @@ const Backdrop = ({ onClose = () => null }) => {
 };
 
 Backdrop.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
 };
 
-const ModalOverlay = ({children}) => {
+const ModalOverlay = ({ children }) => {
   return (
     <ModalStyled>
       <div className="content">{children}</div>
@@ -23,17 +23,13 @@ ModalOverlay.propTypes = {
   children: PropTypes.node,
 };
 
-
 const portalElement = document.getElementById('overlays');
 
-const Modal = ({onClose, children}) => {
+const Modal = ({ onClose, children }) => {
   return (
     <>
       {createPortal(<Backdrop onClose={onClose} />, portalElement)}
-      {createPortal(
-        <ModalOverlay>{children}</ModalOverlay>,
-        portalElement
-      )}
+      {createPortal(<ModalOverlay>{children}</ModalOverlay>, portalElement)}
     </>
   );
 };
@@ -42,6 +38,5 @@ Modal.propTypes = {
   children: PropTypes.node,
   onClose: PropTypes.func,
 };
-
 
 export default Modal;

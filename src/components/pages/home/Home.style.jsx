@@ -7,9 +7,10 @@ const paddingStyle = css`
 `;
 
 const Container = styled.div`
-  flex-flow: column;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: ${({ justifyContent }) => justifyContent || 'center'};
   border-radius: 25px 25px 0px 0px;
   background-color: ${(props) => props.theme.colors.linen};
   padding: ${paddingStyle};

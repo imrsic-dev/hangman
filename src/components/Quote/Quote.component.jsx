@@ -13,13 +13,13 @@ const quoteCreateJSX = (quote, guessedLetters) => {
           {wordArray.map((letter, i) => {
             if (!isAlphaNumeric(letter)) {
               return (
-                <QuoteLetter key={i} minWidth="12px" lineHeight="0.8">
+                <QuoteLetter key={letter + i} minWidth="12px" lineHeight="0.8">
                   {letter}
                 </QuoteLetter>
               );
             }
             return (
-              <QuoteLetter key={i} borderBottom={true}>
+              <QuoteLetter key={letter + i} borderBottom={true}>
                 {guessedLetters.includes(letter) ? letter : null}
               </QuoteLetter>
             );

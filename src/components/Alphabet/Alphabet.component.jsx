@@ -18,7 +18,7 @@ const Alphabet = ({ lang = 'en', quote, setGuessedLetters, setMistakes }) => {
   };
 
   return (
-    <Container>
+    <Container padding="39px" justifyContent="flex-start">
       <AlphabetStyled>
         {alphabet.map((letter) => (
           <Letter
