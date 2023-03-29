@@ -5,6 +5,7 @@ const FlexContainerStyled = styled.div`
   justify-content: center;
   flex-direction: ${(props) => props.flexDirection || 'row'};
   margin: ${(props) => (props.margin ? props.margin : '0')};
+  padding: ${({ padding }) => padding || null};
 `;
 
 export default FlexContainerStyled;

@@ -3,8 +3,9 @@ const theme = {
     blue: '#000747',
     orange: '#C86000',
     red: 'red',
+    darkRed: '#9D0000',
     turquoise: '#39BEAB',
-    linen: '#FFF1E3',
+    linen: 'rgba(255, 241, 227, 1)',
     white: '#FFFFFF',
     pinkLight: '#FFDFC1',
     backdrop: 'rgba(255, 223, 193, 0.83)',
@@ -35,6 +36,7 @@ const theme = {
       xs: '4px',
     },
     padding: {
+      xxxl: '56px',
       xxl: '42px',
       xl: '32px',
       l: '24px',

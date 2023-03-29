@@ -19,11 +19,11 @@ const Home = () => {
         >
           <HangMan fixed={true} />
         </FlexContainer>
+        <Container>
+          <GameLevel />
+          <UsernameForm />
+        </Container>
       </PageContainer>
-      <Container>
-        <GameLevel />
-        <UsernameForm />
-      </Container>
     </>
   );
 };
